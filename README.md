@@ -32,15 +32,20 @@ Se diseño un protocolo de la CED que toma el medio de tranmisión en bruto y lo
 3. o desde la linea de comandos ir a la carpeta en donde está el archivo clonado --> compile el archivo con el comando javac *. y si la compilacion fue exitosa luego ejecute el comando java capaEnlaceApliacion
 ## Pruebas de envio y recepciones
 1. crear una instancia de capa fisica simulada con una probabibilidad de error del canal
-      -EnlaceFisico canal = new EnlaceFisico(probabilidad_error)
-2. crear por lo menos 2 objetos de CapaEnlace 
-     -CapaEnlace A = new CapaEnlace();
-	  -CapaEnlace B = new CapaEnlace();
-4. simular la conexión entre los host a traves del metodo conectar(CapaEnlace a, CapaEnlace B,) proporcionado por el medio
-      -canal.conectar(A, B);
-5. usar el metodo envioDatos("string") proveido para los objetos del tipo CapaEnlace
-       -A.envioDatos("hola B");
-6. verificar en la terminal el envio, recepción de ack/nak , desplazamiento de la venetana deslizante de la ejecución.
-7. Probarlo con difernetes probabilidad de error del medio fisico para poder ver todas los casos posibles con sus determinas respuestas y msj de error. 
+
+   -EnlaceFisico canal = new EnlaceFisico(probabilidad_error)
+3. crear por lo menos 2 objetos de CapaEnlace 
+
+   -CapaEnlace A = new CapaEnlace();
+
+   -CapaEnlace B = new CapaEnlace();
+5. simular la conexión entre los host a traves del metodo conectar(CapaEnlace a, CapaEnlace B,) proporcionado por el medio
+
+   -canal.conectar(A, B);
+7. usar el metodo envioDatos("string") proveido para los objetos del tipo CapaEnlace
+
+   -A.envioDatos("hola B");
+9. verificar en la terminal el envio, recepción de ack/nak , desplazamiento de la venetana deslizante de la ejecución.
+10. Probarlo con difernetes probabilidad de error del medio fisico para poder ver todas los casos posibles con sus determinas respuestas y msj de error. 
 
 
