@@ -2,6 +2,15 @@
 # Protocolo de capa de enlace
 Se diseño un protocolo de la CED que toma el medio de tranmisión en bruto y lo transforma en una linea libre que pareza libre de errores a la capa de red. Esto se lleva a cabo dividiendo los datos de entrada en marcos de datos, recibidos de forma secuencial, y del procesamiento de los acuse/confirmaciones devueltas por el receptor. Todo envio , recepción y control de errores ocurrirá para simplificar el programa en forma secuencial
 el programa fue desarrollado en java , en la  version 17.0.8. usando el entorno intellegi IDEA.
+### Integrandes y docente
+- Docente a cargo de TPs:  Mag. Ing. Paula Martinez
+- Comisión: 4k09
+- Mauro,Renzo
+- Fernandez, Nicolas
+- Fernandez  Julian
+- Quitanta, Adolfo
+- Zubelza, Cristian
+- ciclo lectivo: 2025
 
 ## Características implementadas del protocolo
 
