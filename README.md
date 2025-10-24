@@ -12,7 +12,8 @@ Se diseño un protocolo de la CED que toma el medio de tranmisión en bruto y lo
 - relleno de bytes: la cual es una tecnica para evitar que ciertos simbolos especiales, en nuestro caso ESC y FLAG , en los datos estropescan la correcta interpretación de la trama en el recpetor.
 
 ## Estructura de la trama
-###|FLAG| TIPO_TRAMA| NRO_SEQ| DATOS(PAYLOAD)+ RELLENO DE BYTES | CRC|FLAG | 
+|FLAG| TIPO_TRAMA| NRO_SEQ| DATOS(PAYLOAD)+ RELLENO DE BYTES | CRC|FLAG | 
+
   -FLAG --> 0X7E : delimiador de inicio y fin de la trama
   -TIPO_TRAMA --> 1/2/3 : 1-->Datos  | 2--> ACK | 3-->NAK
   -DATOS --> datos de la capa de red, maximo : 1472 bytes
