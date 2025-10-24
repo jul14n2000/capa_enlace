@@ -6,13 +6,13 @@ Se diseño un protocolo de la CED que toma el medio de tranmisión en bruto y lo
 
 - servicio orientado a la conexión: establecemos una conexión previa entre 2 host antes de comenzar a transferir datos entre ambos
 - Enmarcado: se encapsulan los datos en una trama , limitada por banderas con adición de un CRC-8 bits , mas otros campos de interes como el tipo_trama y el nro de secuencia de la misma.
-- Control de errores:  verificamos si la trama sufrió alguna corrupción en los datos al recalcular el CRC en el recpetor. Ademas recibimos retroalimentación del receptor con tramas de control ACK/NAK para determinar si se recibió correctamente la trama o en caso de que no y se necesite retransmitir. 
+- Control de errores:  verificamos si la trama sufrió alguna corrupción en los datos al recalcular el CRC en el recpetor. Ademas recibimos retroalimentación del receptor con tramas de control ACK/NAK para determinar si se recibió correctamente la trama o en caso de que no y se necesite retransmitir. Evita tramas verificando los nros de cuencia y tramas perdidas con el envio de la señal NAK
 - Control de flujo: implementamos una ventana deslizante de tamaño parametrizado en el emisor, en nuestro caso de tamaño 4, la cual permite tener hasta 4 tramas en "vuelo" sin recibir ACK, asi evitamos saturar al receptor. también implementamos un máximo de retransmisiones , de hasta 3 envios para evitar un bucle infinito en caso de que un trama envidada nunca reciba ACK. cuando se alcanzan las 3 transmisiones de una misma trama y esta no recibe una aACK , se supone q se recibió correctamente y se avanza el puntero base de la ventana para continuar con el sgte nro de secuencia de trmaa a transmitir.
 - simulación del medio fisico con probabiildad de error parametrizado, con llamado de metodos(no usamos sockets) : implementamos un medio fisico simulado con una cierta probabillidad de error, simulando asi un medio real en el cual los bits de la trama pueden corromperse. En nuestro caso, si elegimos una determinada probabilidad de error, el algoritmo corromperá con mayor probabilidad un campo aleatorio de la trama.
 - relleno de bytes: la cual es una tecnica para evitar que ciertos simbolos especiales, en nuestro caso ESC y FLAG , en los datos estropescan la correcta interpretación de la trama en el recpetor.
 
 ## Estructura de la trama
-|FLAG| TIPO_TRAMA| NRO_SEQ| DATOS(PAYLOAD)+ RELLENO DE BYTES | CRC|FLAG | 
+###|FLAG| TIPO_TRAMA| NRO_SEQ| DATOS(PAYLOAD)+ RELLENO DE BYTES | CRC|FLAG | 
   -FLAG --> 0X7E : delimiador de inicio y fin de la trama
   -TIPO_TRAMA --> 1/2/3 : 1-->Datos  | 2--> ACK | 3-->NAK
   -DATOS --> datos de la capa de red, maximo : 1472 bytes
@@ -24,4 +24,6 @@ Se diseño un protocolo de la CED que toma el medio de tranmisión en bruto y lo
    ```bash
    git clone https://github.com/usuario/repositorio.git
 2. desde algun IDE compilar y ejecutar la clase capaEnlaceMeaplicacion, con algunas acciones ya hardcodeadas
-3. o desde la linea de comandos ir a la carpeta en donde está el archivo clonado --> compile el archivo con el comando javac *. y si la compilacion fue exitosa luego ejecute el comando jac capaEnlaceApliacion
+3. o desde la linea de comandos ir a la carpeta en donde está el archivo clonado --> compile el archivo con el comando javac *. y si la compilacion fue exitosa luego ejecute el comando java capaEnlaceApliacion
+
+
