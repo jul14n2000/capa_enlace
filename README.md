@@ -1,6 +1,7 @@
 
 # Protocolo de capa de enlace
 Se diseño un protocolo de la CED que toma el medio de tranmisión en bruto y lo transforma en una linea libre que pareza libre de errores a la capa de red. Esto se lleva a cabo dividiendo los datos de entrada en marcos de datos, recibidos de forma secuencial, y del procesamiento de los acuse/confirmaciones devueltas por el receptor. Todo envio , recepción y control de errores ocurrirá para simplificar el programa en forma secuencial
+el programa fue desarrollado en java , en la  version 17.0.8. usando el entorno intellegi IDEA.
 
 ## Características implementadas del protocolo
 
@@ -47,5 +48,15 @@ Se diseño un protocolo de la CED que toma el medio de tranmisión en bruto y lo
    -A.envioDatos("hola B");
 9. verificar en la terminal el envio, recepción de ack/nak , desplazamiento de la venetana deslizante de la ejecución.
 10. Probarlo con difernetes probabilidad de error del medio fisico para poder ver todas los casos posibles con sus determinas respuestas y msj de error. 
+
+##Implementaciones fundamentales 
+1. CapaEnlace
+- en la clase fundamental de todo el protocolo, desde la cual comienza el proceso de construcción y transmisión de la trama.  se definen las variables que controlan el tamaño de la ventana, la cantidad maxima de reenvios, el nro de secuencia actual disponible. definimos 3 estructuras de datos: bufferEnvio que contiene las tramas ya constuidas y listas para ser transmitidas, el ctadorTranmisiones que almacena el nro de reenvios por trama. ambas del tipo HashMap, la primera usa como clave-valor el nro de secuencia y la trama , mientras q  la 2da usa el nro de secuncia como clave y el nro de reenvio como valor.
+
+3. CtorTrama
+4. EnlaceFisico
+5. RellenoBytes
+6. CRC8
+
 
 
