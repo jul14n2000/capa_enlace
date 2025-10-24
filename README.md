@@ -15,9 +15,13 @@ Se diseño un protocolo de la CED que toma el medio de tranmisión en bruto y lo
 |FLAG| TIPO_TRAMA| NRO_SEQ| DATOS(PAYLOAD)+ RELLENO DE BYTES | CRC|FLAG | 
 
   -FLAG --> 0X7E : delimiador de inicio y fin de la trama
+  
   -TIPO_TRAMA --> 1/2/3 : 1-->Datos  | 2--> ACK | 3-->NAK
+  
   -DATOS --> datos de la capa de red, maximo : 1472 bytes
+  
   _RELLENO DE BYTES --> si en los datos se encuentran los bytes especiales FLAG/ESC se escapan con ESC 
+  
   _CRC--> de 1 bytes para la detección de errores.
 
 ## instalación  y uso 
