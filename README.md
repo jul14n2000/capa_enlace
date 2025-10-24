@@ -49,7 +49,7 @@ el programa fue desarrollado en java , en la  version 17.0.8. usando el entorno 
 9. verificar en la terminal el envio, recepción de ack/nak , desplazamiento de la venetana deslizante de la ejecución.
 10. Probarlo con difernetes probabilidad de error del medio fisico para poder ver todas los casos posibles con sus determinas respuestas y msj de error. 
 
-##Implementaciones fundamentales 
+## algunas de lsa implementaciones fundamentales
 1. CapaEnlace
 - en la clase fundamental de todo el protocolo, desde la cual comienza el proceso de construcción y transmisión de la trama.  se definen las variables que controlan el tamaño de la ventana, la cantidad maxima de reenvios, el nro de secuencia actual disponible. definimos 3 estructuras de datos: bufferEnvio que contiene las tramas ya constuidas y listas para ser transmitidas, el ctadorTranmisiones que almacena el nro de reenvios por trama. ambas del tipo HashMap, la primera usa como clave-valor el nro de secuencia y la trama , mientras q  la 2da usa el nro de secuncia como clave y el nro de reenvio como valor.Y almacenamos los ack recibos en un HashSet para evitar almacenar nro de secuencia duplicados. Y una variable booleana HostA, la cual nos va a permitir saber que host es el emisor y cual es el receptor.
 - metodo sendEnvioDatos --> recibirá los datos a enviar en formato String, los convertirá a un arreglo de bytes y llamará al metodo "CtorTrama.ctorTramaDatos(seq, payload)" pasandole el nro de secuencia actual disponible y el dato convertido en arreglo de bytes. Este retornará la trama complementamente construida y lista para transmitir. Y finalmente llama al metodo VentanaDeslizante
